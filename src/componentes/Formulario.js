@@ -1,7 +1,10 @@
 import React, {useState, Fragment} from "react";
 import { calcularTotal } from '../helpers'
 
-const Formulario = ({cantidad, guardarCantidad, plazo, guardarPlazo}) => {
+const Formulario = (props) => {
+  //Aplico destructuring al props
+  const {cantidad, guardarCantidad, plazo, guardarPlazo, total, guardarTotal} = props;
+
   // La función de useState nos ayuda a definir el state. Todo lo
   // que sea interactivo de la aplicación va a necesitar
   // un estado. En este caso la cantidad y el plazo
@@ -33,7 +36,8 @@ const Formulario = ({cantidad, guardarCantidad, plazo, guardarPlazo}) => {
 
     // Realizar la cotización
     const total = calcularTotal(cantidad, plazo);
-    console.log(total);
+    // console.log(total);
+    guardarTotal(total);
   }
 
   return (

@@ -3,6 +3,7 @@ import Header from './componentes/Header';
 import Formulario from './componentes/Formulario';
 
 
+
 function App() {
   /**
    * Definir el state de cantidad en el formulario. Lo pongo aquí, porque la información
@@ -16,6 +17,7 @@ function App() {
    */
    const [cantidad, guardarCantidad] = useState(0);
    const [plazo, guardarPlazo] = useState('');
+   const [total, guardarTotal] = useState(0);
 
   return (
     <Fragment>
@@ -33,7 +35,11 @@ function App() {
           guardarCantidad={guardarCantidad}
           plazo={plazo}
           guardarPlazo={guardarPlazo}
+          tota={total}
+          guardarTotal={guardarTotal}
         />
+
+        <p>Total a pagar: $ {total}</p>
       </div>
     </Fragment>
   );
