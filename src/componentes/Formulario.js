@@ -3,7 +3,7 @@ import { calcularTotal } from '../helpers'
 
 const Formulario = (props) => {
   //Aplico destructuring al props
-  const {cantidad, guardarCantidad, plazo, guardarPlazo, total, guardarTotal, guardarCargando} = props;
+  const {cantidad, guardarCantidad, plazo, guardarPlazo, guardarTotal, guardarCargando} = props;
 
   // La función de useState nos ayuda a definir el state. Todo lo
   // que sea interactivo de la aplicación va a necesitar
@@ -11,11 +11,11 @@ const Formulario = (props) => {
   const [error, guardarError]= useState(false);
 
   // Función que me permite leer la cantidad del input
-  const leerCantidad = (e) =>{
+  //const leerCantidad = (e) =>{
     // console.log(e.target.value);
     // Cambio el state de cantidad utilizando la función guardarCantidad
     // guardarCantidad(parseInt(e.target.value));
-  };
+  //};
 
   /**Cuando el usuario hace submit */
   const calcularPrestamo = e =>{
