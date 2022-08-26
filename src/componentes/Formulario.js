@@ -3,7 +3,7 @@ import { calcularTotal } from '../helpers'
 
 const Formulario = (props) => {
   //Aplico destructuring al props
-  const {cantidad, guardarCantidad, plazo, guardarPlazo, total, guardarTotal} = props;
+  const {cantidad, guardarCantidad, plazo, guardarPlazo, total, guardarTotal, guardarCargando} = props;
 
   // La función de useState nos ayuda a definir el state. Todo lo
   // que sea interactivo de la aplicación va a necesitar
@@ -34,10 +34,18 @@ const Formulario = (props) => {
     // y eliminar el error previo, en caso de que exista
     guardarError(false)
 
-    // Realizar la cotización
-    const total = calcularTotal(cantidad, plazo);
-    // console.log(total);
-    guardarTotal(total);
+    // Habilito el spinner
+    guardarCargando(true);
+
+    setTimeout(() => {
+      // Realizar la cotización
+      const total = calcularTotal(cantidad, plazo);
+      // console.log(total);
+      guardarTotal(total);
+
+      // Deshabilito el spinner
+      guardarCargando(false);
+    }, 3000);
   }
 
   return (

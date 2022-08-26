@@ -3,6 +3,8 @@ import Header from './componentes/Header';
 import Formulario from './componentes/Formulario';
 import Mensaje from './componentes/Mensaje';
 import Resultado from './componentes/Resultado';
+import Spinner from './componentes/Spinner';
+
 
 
 
@@ -20,11 +22,14 @@ function App() {
    const [cantidad, guardarCantidad] = useState(0);
    const [plazo, guardarPlazo] = useState('');
    const [total, guardarTotal] = useState(0);
+   const [cargando, guardarCargando] = useState(false);
 
   //  Variable que me va a permitir cambiar entre el componente mensaje o resultado
    let componente;
-  //  Si el usuario no ha calculado nada
-   if (total === 0) {
+  //  Si el spinner está como true
+   if (cargando) {
+    componente = <Spinner/>
+   }else if (total === 0) { //  Si el usuario no ha calculado nada
     componente = <Mensaje/>
    } else {
     componente = <Resultado
@@ -52,6 +57,7 @@ function App() {
           guardarPlazo={guardarPlazo}
           tota={total}
           guardarTotal={guardarTotal}
+          guardarCargando={guardarCargando}
         />
 
         <div className='mensajes'>
